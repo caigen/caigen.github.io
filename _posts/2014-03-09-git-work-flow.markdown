@@ -1,10 +1,8 @@
 ---
 layout: post
-title: "git work flow"
+title: "How to remember the git workd flow?"
 date: 2014-03-09 14:16:00
 ---
-
-#How to remember the git work flow?
 
 ###I, git basic work flow.
 
