@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "vim basic setting"
+title:  "vim basic setting & operation"
 date:   2014-03-10 14:09:00
 ---
 ~/.vimrc:
@@ -27,3 +27,10 @@ vim indent mutilines:
     visual model:v
     select mutilines:j/k
     indent/unindent:>/<
+
+vim window operations:
+
+    /* i don't wanna use ctrl + w. it is not comfortable. */
+    :vertical split
+    :vertical resize -4
+    :wincmd h/l/j/k
