@@ -10,7 +10,7 @@ date:   2014-03-10 14:09:00
     syntax on
     set hlsearch
 
-    " vim command: :> & :<
+    " related vim command: :> & :<
     set shiftwidth=4
 
     set tabstop=4
@@ -21,3 +21,9 @@ vim file browser addin (netrw.vim) basic command:
     :e .
     <Enter>
     -
+
+vim indent mutilines:
+
+    visual model:v
+    select mutilines:j/k
+    indent/unindent:>/<
