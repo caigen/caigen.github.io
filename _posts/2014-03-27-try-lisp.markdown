@@ -92,3 +92,6 @@ Type :h you could get the below message and so you know how to leave the CLISP i
     Help (abbreviated :h) = this list
     Use the usual editing capabilities.
     (quit) or (exit) leaves CLISP.
+
+###Tips
+What i talked before is Common Lisp. Maybe you are using the <<Structure and Interpretation of Computer Programs>>, you could install guile /gail/ to evaluate Scheme Code in the book.
