@@ -1,0 +1,94 @@
+---
+layout: post
+title:  "try lisp on windows/linux"
+date:   2014-03-27 12:36:00
+categories: jekyll update
+---
+
+###Setup
+Fake a linux environment with Cygwin and install clisp if you are using windows :). And then type:
+
+    clisp
+
+Well done. You got a lisp env now.
+
+###Hello Lisp
+Do simple computing:
+
+    (+ 1 1)
+
+Cool. You should get the result. Now try anything you could imagine and try get some errors and solve them with help info or google.
+
+If you want to get the "hello world", guess how should you do and try them.
+
+    "hello world"
+
+    ; error
+    'hello world' 
+    ; error
+    hello world 
+    ; error
+    (hello world)
+
+Maybe you want to try:
+
+    ; ok. lisp computes the 1 you typed and you will get 1.
+    1
+
+    ; ok. it is nil which is equal with null.
+    ()
+
+    ; error. list does not know what you want to do on them. 
+    (1)
+    (1 2)
+
+    ; error. lisp uses the blank to separate the tokens.
+    (+ 1,2)
+
+Now you know the nubmer and string in lisp. As we know, they are different. Let's verify with:
+
+    ; error. "hello" is not a number.
+    (+ "hello" "world") 
+ 
+We know that LISP is short for list processor. So now a question is how to get a list.
+
+    ; illegal as we know before.
+    (1 2) 
+
+    ; ok. but it is a string.
+    "(1 2)" 
+
+Now we introduce a basic operator.
+
+    ; quote is similar to +. it means that do "quote" on "1".
+    (quote 1)
+
+    ; error. too many parameters.
+    (quote 1 2)
+
+    ; ok. we got the list (1 2)!
+    (quote (1 2))
+
+By now, we could say that we can write the "hello world" in lisp. And next stepes are:
+
+    '(ask more questions (and) solve them.)
+    '(read more materials (and) practice them.)
+    '(think more (and) enjoy them.)
+
+If you want to get a specific task, you could try to learn/stdudy/think/research the below 7 operators and search some web pages or textbooks about lisp to read. e.g. [cons operator](http://en.wikepedia.org/wike/Cons).
+
+    quote
+    atom
+    eq
+    car
+    cdr
+    cons
+    cond
+
+###Exit
+Type :h you could get the below message and so you know how to leave the CLISP interactive loop.
+
+    You are in the top-level Read-Eval-Print loop.
+    Help (abbreviated :h) = this list
+    Use the usual editing capabilities.
+    (quit) or (exit) leaves CLISP.
