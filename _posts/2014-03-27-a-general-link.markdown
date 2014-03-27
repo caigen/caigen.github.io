@@ -7,6 +7,6 @@ categories: jekyll update
 
 A link like lisp's cons cell.
 
-![a link](../data/2014-03-27-a-link.jpg)
+![a link](caigen.github.io/data/2014-03-27-a-link.jpg)
 
 <script src="https://gist.github.com/caigen/9801231.js"></script>
