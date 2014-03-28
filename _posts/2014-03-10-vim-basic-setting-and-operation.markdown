@@ -42,9 +42,4 @@ vim code completion:
 
 vim full-text replacement:
 
-* %: one hundred percent
-* s: substitute 
-* g: global
-
-
     :%s/target/to/g

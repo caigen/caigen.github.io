@@ -7,7 +7,7 @@ categories: jekyll update
 
 ###What's pthread.h?
 
-The pthread.h file is a C/C++ header file under Linux/Unix. It is used for supporting multipule threads programming. The 'pthread.h' is short for 'POSIX thread header file'.
+The pthread.h file is a C/C++ header file under Linux/Unix. It is used for supporting multiple threads programming. The 'pthread.h' is short for 'POSIX thread header file'.
 
 ###Related file
 The most important related file of pthread.h is pthreadtypes.h. Many data types about thread are defined in it.
