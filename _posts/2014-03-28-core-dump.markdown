@@ -1,0 +1,32 @@
+---
+layout: post
+title:  "use code dump file to debug segment fault"
+date:   2014-03-28 20:35:00
+categories: jekyll update
+---
+
+###What's core dump file?
+
+[Core dump](http://en.wikipedia.org/wiki/Core_dump)
+
+    man core
+
+
+###How to use core dump file?
+
+    gdb -c core
+    // more info, please man gdb or search.
+
+
+###When to use it?
+
+    segment fault.
+
+
+###Related command:
+
+    ulimit -c
+    // ulimit -a to see more info.
+
+    kill -l
+
