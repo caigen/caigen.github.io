@@ -40,3 +40,10 @@ vim code completion:
     ctrl + n (next)
     ctrl + p (previous)
 
+vim full-text replacement:
+
+* %: one hundred percent
+* s: substitute 
+* g:globle
+
+    :%s/target/to/g
