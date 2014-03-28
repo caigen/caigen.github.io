@@ -34,3 +34,9 @@ vim window operations:
     :vertical split
     :vertical resize -4
     :wincmd h/l/j/k
+
+vim code comppletion:
+ 
+    ctrl + n (next)
+    ctrl + p (previous)
+
