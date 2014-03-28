@@ -1,0 +1,72 @@
+---
+layout: post
+title:  "unistd.h"
+date:   2014-03-28 13:50:00
+categories: jekyll update
+---
+
+###What's `unistd.h`?
+
+The unistd.h is a C/C++ header file under Unix/Linux. The name "unistd.h" is short for "unix standard header".
+
+###Where's `unistd.h`? 
+
+See below.
+
+###What's the content of `unistd.h`?
+
+Let's take Ubuntu as a example.
+
+-> /usr/include/linux/unistd.h
+
+    #ifndef _LINUX_UNISTD_H_
+    #define _LINUX_UNISTD_H_
+
+    /*
+     * Include machine specific syscall numbers
+     */
+    #include <asm/unistd.h>
+
+    #endif /* _LINUX_UNISTD_H_ */
+    
+-> /usr/include/asm/unistd.h
+
+    # ifdef __i386__
+    #  include "unistd_32.h"
+    # else
+    #  include "unistd_64.h"
+    # endif
+
+-> /usr/include/asm/unistd_32.h
+    #ifndef _ASM_X86_UNISTD_32_H
+    #define _ASM_X86_UNISTD_32_H
+
+    /*
+     * This file contains the system call numbers.
+     */
+
+    #define __NR_restart_syscall      0
+    #define __NR_exit         1
+    #define __NR_fork         2
+    #define __NR_read         3
+    #define __NR_write        4
+    #define __NR_open         5
+    #define __NR_close        6
+    #define __NR_waitpid          7
+    #define __NR_creat        8
+    #define __NR_link         9
+    #define __NR_unlink      10
+    #define __NR_execve      11
+    ...
+    #define __NR_pipe2      331
+    #define __NR_inotify_init1  332
+    #define __NR_preadv     333
+    #define __NR_pwritev        334
+    #define __NR_rt_tgsigqueueinfo  335
+    #define __NR_perf_event_open    336
+
+    #endif /* _ASM_X86_UNISTD_32_H */
+
+###What's `system call`?
+
+[System call](http://en.wikipedia.org/wiki/System_call)
