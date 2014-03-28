@@ -44,6 +44,7 @@ vim full-text replacement:
 
 * %: one hundred percent
 * s: substitute 
-* g:globle
+* g: global
+
 
     :%s/target/to/g
