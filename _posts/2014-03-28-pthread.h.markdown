@@ -83,11 +83,10 @@ The most important related file of pthread.h is pthreadtypes.h. Many data types 
 
 ->/usr/include/pthread.h
 
-Tips:
-
-1. mutex is short for MUTual EXclusion. NP is short for non-portable.
-2. `__THROW` is defined as throw() in C++ and is defined as nothing in C.
-3. `__nonnull` is a GCC function attribute. See [GCC function attributes](http://gcc.gnu.org/onlinedocs/gcc/Function-Attributes.html).
+    Tips:
+    1. mutex is short for MUTual EXclusion. NP is short for non-portable.
+    2. `__THROW` is defined as throw() in C++ and is defined as nothing in C.
+    3. `__nonnull` is a GCC function attribute. See [GCC function attributes](http://gcc.gnu.org/onlinedocs/gcc/Function-Attributes.html).
 
 
     /* Detach state.  */
