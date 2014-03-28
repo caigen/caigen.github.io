@@ -93,7 +93,7 @@ Tips:
     /* Detach state.  */
     enum { ... };
 
-    /* Mutex types. */  
+    /* Mutex types. */
     enum { ... };
 
     /* Mutex protocols.  */
