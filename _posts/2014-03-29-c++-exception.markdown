@@ -1,13 +1,11 @@
 ---
 layout: post
-title:  "c++ exception header file"
+title:  "c++ exception"
 date:   2014-03-29 12:50:00
 categories: jekyll update
 ---
 
-###C++ exception
-
--> /usr/include/c++/4.4/exception
+###/usr/include/c++/4.4/exception
 
     extern "C++" {
 
@@ -44,9 +42,8 @@ categories: jekyll update
 
     } // extern "C++"
 
-###C++ stdexcept
 
--> /usr/include/c++/4.4/stdexcept
+###/usr/include/c++/4.4/stdexcept
 
     ...
     class logic_error : public exception
@@ -76,14 +73,15 @@ categories: jekyll update
 
 ###Useful info.
 
--> 15.4 Exception specifications in `cpp_standard.pdf` file.
+15.4 Exception specifications in `cpp_standard.pdf` file.
 
-11 A function with no *exception-specification* allows all exceptions. A function with an empty *exception-specification*, `throw()`, does not allow any exceptions.
+  11 A function with no *exception-specification* allows all exceptions. A function with an empty *exception-specification*, `throw()`, does not allow any exceptions.
 
 
 ###Tips
 
 * explicit constructor must be called like `logic_error("logic")`.
+
 * only member function could have const qualifier which means that it would not change the member data. non-member function cannot have cv-qualifier. 
 
 
