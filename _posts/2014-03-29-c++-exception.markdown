@@ -75,15 +75,13 @@ categories: jekyll update
 
 15.4 Exception specifications in `cpp_standard.pdf` file.
 
-  11 A function with no *exception-specification* allows all exceptions. A function with an empty *exception-specification*, `throw()`, does not allow any exceptions.
+    A function with no exception-specification allows all exceptions. A function with an empty exception-specification, throw(), does not allow any exceptions.
 
 
 ###Tips
 
-* explicit constructor must be called like `logic_error("logic")`.
-
-* only member function could have const qualifier which means that it would not change the member data. non-member function cannot have cv-qualifier. 
-
+    1. explicit constructor must be called like `logic_error("logic")`.
+    2. only member function could have const qualifier which means that it would not change the member data. non-member function cannot have cv-qualifier. 
 
     // You could try to compile the below code with g++. 
     // error: non-member function 'void hi()' cannot have cv-qualifier.  (cv is short for 'const/volatile')
