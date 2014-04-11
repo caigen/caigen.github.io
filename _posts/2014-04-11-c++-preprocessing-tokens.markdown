@@ -7,7 +7,7 @@ categories: jekyll update
 
 In `cpp_standard`, we could get the below sentence:
 
-    # 2.4 Preprocessing tokens
+    2.4 Preprocessing tokens
     
     5 [Example: The program fragment x+++++y is parsed as x ++ ++ + y , which, if x and y are of built-in
       types, violates a constraint on increment operators, even though the parse x ++ + ++ y might yield a
@@ -45,4 +45,5 @@ The result of parsing it with gcc is shown as below.
     test.cpp: In function ¡®int main(int, char**)¡¯:
     test.cpp:4: error: lvalue required as increment operand
     test.cpp:5: error: lvalue required as increment operand
+
 
