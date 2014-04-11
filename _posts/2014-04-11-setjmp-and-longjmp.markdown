@@ -84,3 +84,34 @@ The setjmp() and longjmp() functions provide a way to perform a nonlocal goto fr
 ### Most ...
 
 Now you may want to know how to use setjmp and longjmp to implement the try-catch mechanism like C++. Try it first and read <http://www.di.unipi.it/~nids/docs/longjump_try_trow_catch.html>.
+
+A simple and clear demo:
+
+    #include <assert.h>
+    #include <setjmp.h>
+    #include <stdio.h>
+
+    #define THROW \
+        longjmp(env, 1)
+
+    #define TRY \
+        jmp_buf env; \
+        if (setjmp(env) == 0) {
+
+    #define CATCH \
+        } else {
+
+    #define ENDTRY \
+        }
+
+    int main(int argc, char* argv[]) {
+        TRY {
+            printf("line %d\n", __LINE__);
+            THROW;
+        }
+        CATCH {
+            printf("line %d\n", __LINE__);
+        }
+        ENDTRY;
+    }
+
