@@ -1,0 +1,47 @@
+---
+layout: post
+title:  "signal"
+date:   2014-04-11 20:30:00
+categories: jekyll update
+---
+
+### Show me a clear demo first.
+
+    #include <signal.h>
+    #include <unistd.h>
+    #include <stdio.h>
+
+    void signal_handler(int sig) {
+        printf("%d\n", sig);
+    }
+
+    int main(int argc, char* argv[]) {
+        signal(SIGINT, signal_handler);
+
+        sleep(3);
+        raise(SIGINT);
+        kill(getpid(), SIGINT);
+       
+        pause();
+        printf("line %d\n", __LINE__);
+        
+        return 0;
+    }
+
+
+### I want to know the defintion of the signal number.
+
+    man signal
+    man kill
+    grep SIGINT /usr/include/* -R
+
+    -> /usr/include/bits/signum.h
+    /* Signals.  */
+    #define SIGHUP      1   /* Hangup (POSIX).  */
+    #define SIGINT      2   /* Interrupt (ANSI).  */
+    #define SIGQUIT     3   /* Quit (POSIX).  */
+    #define SIGILL      4   /* Illegal instruction (ANSI).  */
+    #define SIGTRAP     5   /* Trace trap (POSIX).  */
+    #define SIGABRT     6   /* Abort (ANSI).  */
+    ...
+
