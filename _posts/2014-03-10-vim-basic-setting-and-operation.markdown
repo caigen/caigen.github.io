@@ -22,11 +22,21 @@ vim file browser addin (netrw.vim) basic command:
     <Enter>
     -
 
+vim [indent](http://vimdoc.sourceforge.net/htmldoc/indent.html) setting:
+
+    set cindent
+
 vim indent mutilines:
 
     visual model:v
     select mutilines:j/k
     indent/unindent:>/<
+
+vim undo & redo:
+
+    u
+    :undo
+    :redo
 
 vim window operations:
 
