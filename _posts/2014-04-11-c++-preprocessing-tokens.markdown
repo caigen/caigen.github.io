@@ -42,8 +42,6 @@ The result of parsing it with gcc is shown as below.
         return 0;
     }
 
-    test.cpp: In function ¡®int main(int, char**)¡¯:
     test.cpp:4: error: lvalue required as increment operand
     test.cpp:5: error: lvalue required as increment operand
-
 
