@@ -80,3 +80,7 @@ The setjmp() and longjmp() functions provide a way to perform a nonlocal goto fr
 
 1. <http://blog.codingnow.com/2010/05/setjmp.html>
 2. <http://en.wikipedia.org/wiki/Setcontext>
+
+### Most ...
+
+Now you may want to know how to use setjmp and longjmp to implement the try-catch mechanism like C++. Try it first and read <http://www.di.unipi.it/~nids/docs/longjump_try_trow_catch.html>.
