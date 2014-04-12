@@ -50,6 +50,13 @@ vim code completion:
     ctrl + n (next)
     ctrl + p (previous)
 
+vim multilines comment & uncomment:
+
+    ctrl + v -> visual block mode.
+    h/l/j/k  -> select block.
+    I (shift+i) -> insert.  // d -> delete.
+    ESC     -> done.
+
 vim full-text replacement:
 
     :%s/target/to/g
