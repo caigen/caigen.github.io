@@ -1,0 +1,235 @@
+---
+layout: post
+title:  "pipe"
+date:   2014-04-12 19:45:00
+categories: jekyll update
+---
+
+### Show me a simple and clear demo first.
+
+    #include <unistd.h>
+
+    #include <assert.h>
+    #include <errno.h>
+    #include <string.h>
+    #include <stdio.h>
+
+    int main(int argc, char* argv[]) {
+        int pipefd[2];
+        pipe(pipefd);
+
+        int r_end = pipefd[0];
+        int w_end = pipefd[1];
+
+        write(w_end, "a", 1); 
+        write(w_end, "b", 1); 
+
+        char message;
+        while (read(r_end, &message, 1)) {
+            perror("read");
+            printf("%c\n", message);
+        }   
+
+        // the above read() is blocked. here can not be reached.
+        // use ctrl + c to terminate.
+        assert(0);
+        close(r_end);
+        close(w_end);
+
+        return 0;
+    }
+
+
+### I don't want let the read() be blocked.
+
+    #include <unistd.h>
+
+    #include <assert.h>
+    #include <errno.h>
+    #include <string.h>
+    #include <stdio.h>
+
+    int main(int argc, char* argv[]) {
+        int pipefd[2];
+        pipe(pipefd);
+
+        int r_end = pipefd[0];
+        int w_end = pipefd[1];
+
+        write(w_end, "a", 1); 
+        write(w_end, "b", 1); 
+        close(w_end);
+
+        char message;
+        while (read(r_end, &message, 1)) {
+            perror("read");
+            printf("%c\n", message);
+        }   
+
+        close(r_end);
+
+        return 0;
+    }
+
+
+### But i would like close the fds at last. Maybe i could use them multiple times in practice.
+
+    #include <fcntl.h>  // for O_NONBLOCK
+    #include <unistd.h>
+
+    #include <assert.h>
+    #include <errno.h>
+    #include <string.h>
+    #include <stdio.h>
+
+    int main(int argc, char* argv[]) {
+        int pipefd[2];
+        // pipe(pipefd);
+        pipe2(pipefd, O_NONBLOCK);
+
+        int r_end = pipefd[0];
+        int w_end = pipefd[1];
+
+        write(w_end, "a", 1);
+        write(w_end, "b", 1);
+
+        char message;
+
+        while (read(r_end, &message, 1) > 0) {
+            perror("read");
+            printf("%c\n", message);
+        }
+
+        close(w_end);
+        close(r_end);
+
+        return 0;
+    }
+
+### Cool now. But i don't wanna use the pipe2(). Any solutions for pipe()?
+
+    #include <sys/times.h>
+    #include <sys/select.h>
+    #include <unistd.h>
+
+    #include <assert.h>
+    #include <errno.h>
+    #include <string.h>
+    #include <stdio.h>
+
+    int main(int argc, char* argv[]) {
+        int pipefd[2];
+        pipe(pipefd);
+
+        int r_end = pipefd[0];
+        int w_end = pipefd[1];
+
+        write(w_end, "a", 1); 
+        write(w_end, "b", 1); 
+
+        fd_set rset;
+        FD_SET(r_end, &rset);
+        timeval time = {0,0};
+
+        do {
+            char message;
+            read(r_end, &message, 1); 
+            perror("read");
+            printf("%c\n", message);
+        } while (select(r_end + 1, &rset, NULL, NULL, &time));
+
+        close(w_end);
+        close(r_end);
+
+        return 0;
+    }
+
+### Wow. Now i want to know how to use it in 2 or more processes.
+
+*message from parent to child.*
+
+
+    #include <unistd.h>
+
+    #include <assert.h>
+    #include <errno.h>
+    #include <string.h>
+    #include <stdio.h>
+
+    int main(int argc, char* argv[]) {
+        int pipefd[2];
+        pipe(pipefd);
+
+        int r_end = pipefd[0];
+        int w_end = pipefd[1];
+
+        if (fork() == 0) {   
+            // child
+            close(w_end);
+
+            char message;
+            while (read(r_end, &message, 1)) {
+                perror("read");
+                printf("%c\n", message);
+            }   
+            close(r_end);
+        } else {
+            // parent.
+            close(r_end);
+
+            write(w_end, "a", 1); 
+            write(w_end, "b", 1); 
+            close(w_end);
+        }   
+
+        return 0;
+    }
+
+
+*message from child to parent.*
+
+
+    #include <unistd.h>
+
+    #include <assert.h>
+    #include <errno.h>
+    #include <string.h>
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    int main(int argc, char* argv[]) {
+        int pipefd[2];
+        pipe(pipefd);
+        
+        int r_end = pipefd[0];
+        int w_end = pipefd[1];
+        
+        if (fork() == 0) {  // child
+            close(r_end);
+
+            write(w_end, "a", 1);
+            write(w_end, "b", 1);
+            close(w_end);
+        } else {
+            // parent
+            close(w_end);
+        
+            char message;
+            while (read(r_end, &message, 1)) {
+                perror("read");
+                printf("%c\n", message);
+            }
+            close(r_end);
+        }   
+
+        return 0;
+    }
+
+### Ok. I got it. Now i want to know more details about above code.
+
+    man pipe
+    man select
+    man fork
+
+    read other materials.
+
