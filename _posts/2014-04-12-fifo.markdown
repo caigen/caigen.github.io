@@ -1,0 +1,80 @@
+---
+layout: post
+title:  "fifo"
+date:   2014-04-12 22:00:00
+categories: jekyll update
+---
+
+### Show me a simple & clear & useful demo. It is welcome if the demo has some implict hint & makes me think more.
+
+*how to use the below demo?*
+
+    g++ fifo_in.cpp -o fi.out
+    g++ fifo_out.cpp -o fo.out
+
+    ./fi.out &
+    ls -l fifo.temp
+    ./fo.out
+
+
+*fifo_in.cpp*
+
+
+    #include <sys/stat.h>   // for S_IRWXU
+    #include <fcntl.h>      // for O_WRONLY, O_NONBLOCK
+    #include <unistd.h>
+
+    #include <assert.h>
+    #include <errno.h>
+    #include <string.h>
+    #include <stdio.h>
+
+    int main(int argc, char* argv[]) {
+        const char* fifo_name = "fifo.temp";
+
+        mkfifo(fifo_name, S_IRWXU);
+        perror("mkfifo");
+
+        int fd = open(fifo_name, O_WRONLY);
+        perror("open");
+
+        write(fd, "a", 1); 
+        perror("write");
+
+        write(fd, "b", 1); 
+        perror("write");
+
+        close(fd);
+
+        return 0;
+    }
+
+
+*fifo_out.cpp*
+
+
+    #include <fcntl.h>      // for O_NONBLOCK
+    #include <unistd.h>     
+
+    #include <assert.h>
+    #include <errno.h>
+    #include <string.h>
+    #include <stdio.h>
+
+    int main(int argc, char* argv[]) {
+        const char* fifo_name = "fifo.temp";
+        int fd = open(fifo_name, O_RDONLY | O_NONBLOCK);
+        perror("open");
+        
+        char message;
+        while (read(fd, &message, 1)) {
+            perror("read");
+            printf("%c\n", message);
+        }
+        
+        close(fd);
+        unlink(fifo_name);
+        
+        return 0;
+    }
+
