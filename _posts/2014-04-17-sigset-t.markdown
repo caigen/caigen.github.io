@@ -1,0 +1,45 @@
+---
+layout: post
+title:  "sigset_t"
+date:   2014-04-17 21:40:00
+categories: jekyll update
+---
+
+### Show a demo of sigset_t usage.
+
+
+    #include <signal.h>
+    #include <unistd.h>
+
+    #include <stdio.h>
+
+    int main(int argc, char* argv[]) {
+        // sigset_t is defined in bits/sigset.h, included by signal.h.
+        // A 'sigset_t' has a bit for each signal.
+        sigset_t set;
+        
+        sigemptyset(&set);
+        printf("sigismember(&set, SIGHUP) returns %d\n", sigismember(&set, SIGHUP));
+        
+        sigaddset(&set, SIGHUP);
+        printf("sigismember(&set, SIGHUP) returns %d\n", sigismember(&set, SIGHUP));
+
+        sigdelset(&set, SIGHUP);
+        printf("sigismember(&set, SIGHUP) returns %d\n", sigismember(&set, SIGHUP));
+
+        sigfillset(&set);
+        printf("sigismember(&set, SIGUSR1) returns %d\n", sigismember(&set, SIGUSR1));
+
+        return 0;
+    }
+
+
+    /*
+    More Info:
+
+    sigaction - examine and change a signal action
+    sigprocmast - examine and change blocked signals
+    sigpending - examine pending signals
+
+    */
+
