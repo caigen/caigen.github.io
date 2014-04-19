@@ -36,6 +36,11 @@ categories: jekyll update
         explicit Unit(int socket) {
             r0 = socket;
         }
+        ~Unit() {
+            close(r0);
+            perror("close");
+        }
+
         void w(const char* const msg) const {
             //write(r0, msg, strlen(msg));
             send(r0, msg, strlen(msg), 0);
