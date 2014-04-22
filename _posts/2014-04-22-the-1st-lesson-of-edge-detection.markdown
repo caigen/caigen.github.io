@@ -182,3 +182,7 @@ categories: Image Processing
 ![p1.jpg](http://caigen.github.io/data/2014-04-22-p1.jpg)
 ![edge.jpg](http://caigen.github.io/data/2014-04-22-edge.jpg)
 ![edge2.jpg](http://caigen.github.io/data/2014-04-22-edge2.jpg)
+
+#### Exercise
+
+Fix the edge_xy.c to make the edge2.pbm be closed. (tips: first row & last row)
