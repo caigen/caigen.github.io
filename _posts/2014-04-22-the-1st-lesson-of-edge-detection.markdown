@@ -178,7 +178,7 @@ categories: Image Processing
 
 #### Yup, you got it!
 
-![chick.jpg](http://caigen.github.io/data/2014-04-22-p1.jpg)
+![chick.jpg](http://caigen.github.io/data/2014-04-22-chick.jpg)
 ![p1.jpg](http://caigen.github.io/data/2014-04-22-p1.jpg)
 ![edge.jpg](http://caigen.github.io/data/2014-04-22-edge.jpg)
 ![edge2.jpg](http://caigen.github.io/data/2014-04-22-edge2.jpg)
