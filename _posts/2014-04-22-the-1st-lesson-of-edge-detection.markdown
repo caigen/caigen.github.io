@@ -178,6 +178,7 @@ categories: Image Processing
 
 #### Yup, you got it!
 
-![p1.pbm](http://caigen.github.io/data/2014-04-22-p1.pbm)
-![edge.pbm](http://caigen.github.io/data/2014-04-22-edge.pbm)
-![edge2.pbm](http://caigen.github.io/data/2014-04-22-edge2.pbm)
+![chick.jpg](http://caigen.github.io/data/2014-04-22-p1.jpg)
+![p1.jpg](http://caigen.github.io/data/2014-04-22-p1.jpg)
+![edge.jpg](http://caigen.github.io/data/2014-04-22-edge.jpg)
+![edge2.jpg](http://caigen.github.io/data/2014-04-22-edge2.jpg)
