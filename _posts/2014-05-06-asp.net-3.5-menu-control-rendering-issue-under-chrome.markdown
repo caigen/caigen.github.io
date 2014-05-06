@@ -1,0 +1,11 @@
+---
+layout: post
+title:  "asp.net 3.5 menu control rendering issue under chrome"
+date:   2014-04-06 20:10:00
+categories: jekyll update
+---
+
+* Googling 'asp.net menu chrome' will get some hacking solutions.
+
+* .net framework 4.0 fixes this issue.
+
